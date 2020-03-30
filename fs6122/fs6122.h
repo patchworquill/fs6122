@@ -42,6 +42,9 @@ class fs6122
 
   bool begin(uint8_t addr = FS6122_DEFAULT_ADDRESS);
 
+  void write_address(uint8_t addr);
+  void read_address();
+
   void read_flowrate_pressure();
   void read_temperature();
   void read_humidity();
