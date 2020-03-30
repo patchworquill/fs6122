@@ -28,7 +28,7 @@
 #define cmd_read_filterDepth    0x8B // Int8, 0~254
 #define cmd_read_pressure       0xA3 // Int32/1000 cmH20
 #define cmd_read_temperature    0x82  // Int16/100 deg celcius
-#define cmd_read_humidity       0x83  // Int16/100 %RH 
+#define cmd_read_humidity       0x83  // Int16/100 %RH
 
 void setup() {
   Wire.begin(); // join i2c bus (address optional for master)
@@ -64,11 +64,9 @@ void read_flowRate_pressure(addr) {
 //  Wire.write(cmd_read_flowRate_pressure);
   Wire.requestFrom(addr, 2);
 
-  // read 2 bytes from 
+  // read 2 bytes from
   if(Wire.available()<=2){
     X0 = Wire.read();
-    X1 = Wire.read();  
-  }
-
-  
+    X1 = Wire.read();
+  }  
 }

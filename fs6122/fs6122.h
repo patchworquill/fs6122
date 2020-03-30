@@ -38,14 +38,16 @@
 class fs6122
 {
  public:
-  FS6122(int64_t id = -1);
+  fs6122(int64_t id = -1);
 
   bool begin(uint8_t addr = FS6122_DEFAULT_ADDRESS);
 
   void read_flowrate_pressure();
+  void read_temperature();
+  void read_humidity();
 
-  void setFilterDepth(fs6122_filterdepth_t filterdepth);
-  fs6122_filterdepth_t readFilterDepth(void);
+  // void setFilterDepth(fs6122_filterdepth_t filterdepth);
+  // fs6122_filterdepth_t readFilterDepth(void);
 
   int16_t temperature, humidity;
   int32_t flow_rate, pressure;

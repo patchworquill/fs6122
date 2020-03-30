@@ -118,10 +118,41 @@ void fs6122::read_flowrate_pressure(void) {
   pressure |= Wire.read(); pressure <<= 8;
   pressure |= Wire.read(); pressure >>= 2; // value is 14 bit, so shift by 2
 
-  // uint8_t range = getRange();
-  uint16_t divider = 1024; // divide both values by 1000
+  uint32_t divider = 1000; // divide both values by 1000 (TODO: CHECK: is this a problem, using 1024 instead?!)
 
   flow_rate_slpm = (float)flow_rate / divider;
   pressure_cmh2o = (float)pressure / divider;
+
+}
+
+void fs6122::read_temperature(void) {
+  // read flow rate and pressure at once
+  Wire.beginTransmission(_i2caddr);
+  i2cwrite(FS6122_READ_TEMPERATURE);
+  Wire.endTransmission(false); // many devices use repeated start!!
+
+  Wire.requestFrom(_i2caddr, 2); // request 2 bytes of data
+  temperature = Wire.read(); temperature <<= 8; // shift by byte each read
+  temperature |= Wire.read();
+
+  uint16_t divider = 100; // divide both values by 1000
+
+  temperature_c = (float)temperature / divider;
+
+}
+
+void fs6122::read_humidity(void) {
+  // read flow rate and pressure at once
+  Wire.beginTransmission(_i2caddr);
+  i2cwrite(FS6122_READ_HUMIDITY);
+  Wire.endTransmission(false); // many devices use repeated start!!
+
+  Wire.requestFrom(_i2caddr, 2); // request 2 bytes of data
+  humidity = Wire.read(); humidity <<= 8; // shift by byte each read
+  humidity |= Wire.read();
+
+  uint16_t divider = 100; // divide both values by 1000
+
+  humidity_prh = (float)humidity / divider;
 
 }
