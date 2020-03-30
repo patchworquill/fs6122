@@ -38,7 +38,7 @@
 class fs6122
 {
  public:
-  fs6122(int64_t id = -1);
+  fs6122(int64_t sensorID = -1);
 
   bool begin(uint8_t addr = FS6122_DEFAULT_ADDRESS);
 

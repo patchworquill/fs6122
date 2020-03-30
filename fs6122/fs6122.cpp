@@ -98,6 +98,20 @@ fs6122::fs6122(int64_t sensorID) {
 
 /**************************************************************************/
 /*!
+    @brief  Setups the HW (reads coefficients values, etc.)
+*/
+/**************************************************************************/
+bool fs6122::begin(uint8_t i2caddr) {
+  Wire.begin();
+  _i2caddr = i2caddr;
+
+  writeRegister8(FS6122_WRITE_FILTERDEPTH, 0xFE); // set filter depth to maximum (254)
+
+  return true;
+}
+
+/**************************************************************************/
+/*!
     @brief  Reads flow rate and pressure
 */
 /**************************************************************************/
