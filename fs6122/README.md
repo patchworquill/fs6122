@@ -1,4 +1,5 @@
-#FS6122 Bi-Directional Medical Respiratory Sensor - Measures Flow Rate & Gauge Pressure, Humidity & Temp Driver #
+###FS6122 Bi-Directional Medical Respiratory Sensor
+# Measures Flow Rate & Gauge Pressure, Humidity & Temp Driver
 
 This driver is for the FS6122 Bi-Directional Medical Respiratory Sensor (http://www.siargo.us/fs6122-mass-flow-sensor.html), and is based on the Arduino Wire library and utilizing the i2c bus protocol.
 

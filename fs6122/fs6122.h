@@ -46,6 +46,9 @@ class fs6122
   void read_temperature();
   void read_humidity();
 
+  void cal_flowrate(int8_t value);
+  void cal_pressure(int8_t value);
+
   // void setFilterDepth(fs6122_filterdepth_t filterdepth);
   // fs6122_filterdepth_t readFilterDepth(void);
 

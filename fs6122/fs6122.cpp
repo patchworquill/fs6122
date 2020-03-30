@@ -139,6 +139,12 @@ void fs6122::read_flowrate_pressure(void) {
 
 }
 
+/**************************************************************************/
+/*!
+    @brief  Reads temperature in degrees celcius
+*/
+/**************************************************************************/
+
 void fs6122::read_temperature(void) {
   // read flow rate and pressure at once
   Wire.beginTransmission(_i2caddr);
@@ -155,6 +161,13 @@ void fs6122::read_temperature(void) {
 
 }
 
+/**************************************************************************/
+/*!
+    @brief  Reads relative humidity
+*/
+/**************************************************************************/
+
+
 void fs6122::read_humidity(void) {
   // read flow rate and pressure at once
   Wire.beginTransmission(_i2caddr);
@@ -169,4 +182,24 @@ void fs6122::read_humidity(void) {
 
   humidity_prh = (float)humidity / divider;
 
+}
+
+/**************************************************************************/
+/*!
+    @brief  Calibrate the offset of flow rate for the FS6122
+*/
+/**************************************************************************/
+void fs6122::cal_flowrate(int8_t value)
+{
+  writeRegister8(FS6122_CAL_FLOWRATE_OFFSET, value);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Calibrate the offset of pressure for the FS6122
+*/
+/**************************************************************************/
+void fs6122::cal_pressure(int8_t value)
+{
+  writeRegister8(FS6122_CAL_PRESSURE_OFFSET, value);
 }
