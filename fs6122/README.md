@@ -13,4 +13,4 @@ More information on the FS6122 can be found in the datasheet: https://www.servof
 
 Melt Collective invests time and resources providing this open source code.  Please support Melt Collective and open-source hardware development, either directly through your contributions, or by buying our products and sharing our creations.
 
-Written by Patrick Wilkie for Melt Collective.
+Written by Patrick Wilkie.
